@@ -1,0 +1,65 @@
+<body ng-app='myApp' ng-controller='propertiesCtrl'>  
+
+  <div class="navbar">
+    <h2 class="title text-center">My Properties</h2>
+  </div>
+
+  <div class="entries text-center">
+    <h3>Add Property</h3>
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Address</label>
+      <input type="text" class="form-control" placeholder="Address" ng-model='newProperties.address'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Occupation Status</label>
+      <input type="text" class="form-control" placeholder="Occupied or Vacant" ng-model='newProperties.status'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Rent Price</label>
+      <input type="number" class="form-control" placeholder="Amount Monthly" ng-model='newProperties.rent'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Desciption</label>
+      <input type="text" class="form-control" placeholder="Description" ng-model='newProperties.description'>
+    </div>  
+
+    <button class="btn btn-primary" ng-click='addProperty()'>Create</button>
+
+  </div>
+
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th ng-click='sortBy("adress")'>Address</th>
+          <th ng-click='sortBy("status")'>Occupation Status</th>
+          <th ng-click='sortBy("price")'>Rent Price</th>
+          <th ng-click='sortBy("description")'>Descriprion</th>
+          <th>Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+
+   <tr ng-repeat='property in properties | filter:searchFilter | orderBy:sortOrder track by $index'>
+          <td>{{property.address}}</td>
+          <td>{{property.status}}</td>
+          <td>{{property.rent}}</td>
+          <td>{{property.other}}</td> 
+
+
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" ng-click='removeProperty(prperty)'>
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>  
+      </tr>
+  </tbody>
+  </table>
+
+</body>

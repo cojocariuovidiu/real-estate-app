@@ -1,0 +1,64 @@
+<body ng-app='myApp' ng-controller='tenantsCtrl'>  
+
+  <div class="navbar">
+    <h2 class="title text-center">My Tenants</h2>
+  </div>
+
+  <div class="entries text-center">
+    <h3>Add Tenant</h3>
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Full Name</label>
+      <input type="text" class="form-control" placeholder="Full Name" ng-model='newTenants.name'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Email</label>
+      <input type="text" class="form-control" placeholder="Email" ng-model='newTenants.email'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Phone Number</label>
+      <input type="number" class="form-control" placeholder="Phone Number" ng-model='newTenants.phone'>
+    </div>  
+
+    <div class="form-group col-xs-6 col-md-3">
+      <label>Other</label>
+      <input type="text" class="form-control" placeholder="Other information" ng-model='newTenants.rent'>
+    </div>  
+
+    <button class="btn btn-primary" ng-click='addTenant()'>Create</button>
+
+  </div>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th ng-click='sortBy("name")'>Name</th>
+          <th ng-click='sortBy("email")'>Email</th>
+          <th ng-click='sortBy("phone")'>Phone</th>
+          <th ng-click='sortBy("other")'>Other</th>
+          <th>Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+
+   <tr ng-repeat='tenant in tenants | filter:searchFilter | orderBy:sortOrder track by $index'>
+          <td>{{tenant.name}}</td>
+          <td>{{tenant.email}}</td>
+          <td>{{tenant.phone}}</td>
+          <td>{{tenant.other}}</td> 
+
+
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" ng-click='removeTenant(tenant)'>
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>  
+      </tr>
+  </tbody>
+  </table>
+
+</body>
