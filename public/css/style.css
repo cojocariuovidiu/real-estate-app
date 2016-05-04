@@ -24,6 +24,10 @@ h1 {
   color: #777777;
 }
 
+.search-div {
+	width: 200px;
+	padding-bottom: 30px;
+}
 
 
 .panel-title {

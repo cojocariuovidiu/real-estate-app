@@ -24,12 +24,19 @@
 
     <div class="form-group col-xs-6 col-md-3">
       <label>Other</label>
-      <input type="text" class="form-control" placeholder="Other information" ng-model='newTenants.rent'>
+      <input type="text" class="form-control" placeholder="Other information" ng-model='newTenants.other'>
     </div>  
 
     <button class="btn btn-primary" ng-click='addTenant()'>Create</button>
 
   </div>
+
+  <!-- search -->
+    <div class="search-div">
+      <input type="text" class="form-control search-bar text-center" placeholder="Search" ng-model='searchFilter'>
+    </div>
+
+
 
   <table class="table">
       <thead>

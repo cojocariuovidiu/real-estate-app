@@ -31,13 +31,19 @@
 
   </div>
 
+  <!-- search -->
+    <div class="search-div">
+      <input type="text" class="form-control search-bar text-center" placeholder="Search" ng-model='searchFilter'>
+    </div>
+
+
 
   <table class="table">
       <thead>
         <tr>
           <th ng-click='sortBy("adress")'>Address</th>
           <th ng-click='sortBy("status")'>Occupation Status</th>
-          <th ng-click='sortBy("price")'>Rent Price</th>
+          <th ng-click='sortBy("rent")'>Rent Price</th>
           <th ng-click='sortBy("description")'>Descriprion</th>
           <th>Delete</th>
 
@@ -50,11 +56,11 @@
           <td>{{property.address}}</td>
           <td>{{property.status}}</td>
           <td>{{property.rent}}</td>
-          <td>{{property.other}}</td> 
+          <td>{{property.description}}</td> 
 
 
           <td>
-            <button type="button" class="btn btn-danger btn-sm" ng-click='removeProperty(prperty)'>
+            <button type="button" class="btn btn-danger btn-sm" ng-click='removeProperty(property)'>
               <span class="glyphicon glyphicon-remove"></span>
             </button>
           </td>  

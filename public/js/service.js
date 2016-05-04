@@ -20,6 +20,9 @@ app.service('Properties', function($http) {
   this.getById = function(id) {
     return $http.get(`api/properties/${id}/`);
   }
+	this.remove = function(property) {
+    return $http.delete(`/api/properties/${property._id}`);
+  };
 
 })
 
@@ -39,9 +42,15 @@ app.service('Tenants', function($http) {
     return $http.get(`api/tenants/`);
   }
 
-  this.getById = function(id) {
-    
+  this.getById = function(id) {  
   }
+
+	this.remove = function(tenant) {
+    return $http.delete(`/api/properties/${tenant._id}`);
+  };
+	this.remove = function(tenant) {
+    return $http.delete(`/api/properties/${tenant._id}`);
+  };
 
 })
 
